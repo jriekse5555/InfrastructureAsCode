@@ -1,3 +1,4 @@
+# Created by Jim R. 
 Set-ExecutionPolicy Bypass
 Import-Module "sqlps" -DisableNameChecking
 
