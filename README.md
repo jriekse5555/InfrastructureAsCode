@@ -1,7 +1,7 @@
 # InfrastructureAsCode-Powershell
 Library of Powershell Scripts that support Infrastructure as Code tasks
 
-## Directory Added to Support Azure DevOps Pipelines using only Powerhshell
+## Directory Added to Support Azure DevOps Pipelines using only Powershell
 Also includes documentation on overall strategy using Microsoft-based techniques for Azure DevOps deployments
 
 Please email me jriekse5555@hotmail.com if you would like push access.
