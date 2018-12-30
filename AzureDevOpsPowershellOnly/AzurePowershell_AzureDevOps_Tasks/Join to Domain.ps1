@@ -1,7 +1,8 @@
+#Sets up variables for join password and then the credential for the domain join
 $JoinPass = ConvertTo-SecureString "$(JoinPass)" -AsPlainText -Force
 $Credential = New-Object System.Management.Automation.PSCredential ("$(JoinUser)", $JoinPass)
 
-
+#Domain Join function from forum on internet
 function Add-JDAzureRMVMToDomain {
 <#
 .SYNOPSIS
@@ -64,4 +65,5 @@ param(
     end { }
 }
 
+#Joins domain via variables leveraging function
 Add-JDAzureRMVMToDomain -DomainName "$(Domain)" -VMName "$(VMName)" -ResourceGroupName "$(ResourceGroup)" -Credentials $Credential -Verbose
