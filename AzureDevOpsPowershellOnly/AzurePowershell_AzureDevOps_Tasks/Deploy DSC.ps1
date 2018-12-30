@@ -1,8 +1,9 @@
-#Set-AzureRmVMDscExtension -ResourceGroupName "$(ResourceGroupName)" -VMName "$(VMName)" -ArchiveBlobName "<DSC.zip>" -ArchiveStorageAccountName "<StorageAccountName>" -ArchiveContainerName "<Container>" -ArchiveResourceGroupName "<ResourceGroup>" -ConfigurationName "<Config>" -Version "2.76" -Location "$(Location)" -Force
+$DSCPath = "$(artifactsLocation)" + "/Code/DSC/ConfigureStandardServer.zip" + "$(artifactsLocationSasToken)"
 
 $SettingsHT = @{
-    "ModulesUrl" = "<URLwithSAS>";
-    "ConfigurationFunction" = "<PSName>.ps1\<Config>"
+    "ModulesUrl" = "$DSCPath";
+    "ConfigurationFunction" = "ConfigureStandardServer.ps1\Install"
     }
 
+#Used Set-AzureRmVMExtension instead of Set-AzureRmVMDscExtension as Set-AzureRmVMDscExtension was requesting the older parameter -ConfigurationArchive
 Set-AzureRmVMExtension -ExtensionName 'DSC' -ResourceGroupName "$(ResourceGroupName)" -VMName "$(VMName)" -Location "$(Location)" -ExtensionType 'DSC' -Publisher 'Microsoft.PowerShell' -TypeHandlerVersion '2.76' -Settings $SettingsHT
