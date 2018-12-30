@@ -1,4 +1,5 @@
 #Sets up variables for join password and then the credential for the domain join
+#Note all variables with the syntax "$()" are DevOps variables that need to predefined
 $JoinPass = ConvertTo-SecureString "$(JoinPass)" -AsPlainText -Force
 $Credential = New-Object System.Management.Automation.PSCredential ("$(JoinUser)", $JoinPass)
 

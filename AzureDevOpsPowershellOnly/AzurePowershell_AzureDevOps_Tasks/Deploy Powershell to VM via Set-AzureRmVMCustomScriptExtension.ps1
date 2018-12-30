@@ -1,4 +1,5 @@
 #Provides an example of running a powershell script on a VM using Set-AzureRmVMCustomScriptExtension
+#Note all variables with the syntax "$()" are DevOps variables that need to predefined
 #Sets up the path to the powershell script leveraging DevOps variables
 $FilePath = "$(artifactsLocation)" + "/Code/Powershell/test.ps1" + "$(artifactsLocationSasToken)"
 
