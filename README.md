@@ -6,6 +6,6 @@ An Azure DevOps pipeline allows a list of repeatable tasks to be executed in an 
 Powershell is covered heavily with more chapters to come around ARM and Powershell DSC
 
 ## Sub-directories contain content divided by type
-### Library of standalone Powershell Scripts that support Infrastructure as Code tasks
-### Library of Azure Powershell Tasks with inline powershell
-### Library of importable DevOps pipelines
+### - Library of standalone Powershell Scripts that support Infrastructure as Code tasks
+### - Library of Azure Powershell Tasks with inline powershell
+### - Library of importable DevOps pipelines
