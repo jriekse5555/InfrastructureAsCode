@@ -12,7 +12,7 @@ Remove-Item -Path “HKCU:SOFTWARE\Microsoft\Active Setup\Installed Components\{
 }
 If (Test-Path “HKCU:SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}”)
 {
-Remove-Item -Path “HKCU:SOFTWARE\Microsoft\Active Setup\Installed Components\s{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}”
+Remove-Item -Path “HKCU:SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}”
 }
 
 #This doesn’t always exist
