@@ -5,7 +5,7 @@
 $DSCPath = "$(artifactsLocation)" + "/test.zip" + "$(artifactsLocationSasToken)"
 
 #Sets DSC location, configuration file and configuration
-$SettingsHT = @{
+$Settings = @{
     "ModulesUrl" = "$DSCPath";
     "ConfigurationFunction" = "test.ps1\Install"
     }
@@ -13,4 +13,4 @@ $SettingsHT = @{
 #Used Set-AzureRmVMExtension instead of Set-AzureRmVMDscExtension as Set-AzureRmVMDscExtension was requesting the older parameter -ConfigurationArchive
 #Installs DSC extension
 #Note DSC extension can be used multiple times if the same Name is used
-Set-AzureRmVMExtension -ExtensionName 'DSC' -ResourceGroupName "$(ResourceGroupName)" -VMName "$(VMName)" -Location "$(Location)" -ExtensionType 'DSC' -Publisher 'Microsoft.PowerShell' -TypeHandlerVersion '2.76' -Settings $SettingsHT
+Set-AzureRmVMExtension -ExtensionName 'Microsoft.Powershell.DSC' -ResourceGroupName "$(ResourceGroupName)" -VMName "$(VMName)" -Location "$(Location)" -ExtensionType 'DSC' -Publisher 'Microsoft.PowerShell' -TypeHandlerVersion '2.76' -Settings $Settings
