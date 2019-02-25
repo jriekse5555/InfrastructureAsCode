@@ -1,3 +1,5 @@
+#Note all variables with the syntax "$()" are DevOps variables that need to be predefined
+
 #Retrieves previously created NSG
 $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName "$(ResourceGroup)" -Name "$(NSG)"
 

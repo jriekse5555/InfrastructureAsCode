@@ -1,5 +1,5 @@
 #Provides an example of running a powershell script on a VM using Set-AzureRmVMCustomScriptExtension
-#Note all variables with the syntax "$()" are DevOps variables that need to predefined
+#Note all variables with the syntax "$()" are DevOps variables that need to be predefined
 #Sets up the path to the powershell script leveraging DevOps variables
 #Sets script location existing on a private container on a storage accounts with a SAS token
 #Note that if the .ps1 file is not of the root of the container the blob prefix would be in the path such as: "/BlobPrefix/test.ps1"

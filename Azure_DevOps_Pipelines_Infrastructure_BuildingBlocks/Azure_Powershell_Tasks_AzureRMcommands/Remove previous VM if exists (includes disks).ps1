@@ -1,5 +1,5 @@
 #Removes previous VM to allow running the creation script again
-#Note all variables with the syntax "$()" are DevOps variables that need to predefined
+#Note all variables with the syntax "$()" are DevOps variables that need to be predefined
 Remove-AzureRmVM -ResourceGroupName "$(ResourceGroup)" -Name "$(VMName)" -Force
 
 #After VM is removed, the disks are removed using a specific naming convention that was used in the creation

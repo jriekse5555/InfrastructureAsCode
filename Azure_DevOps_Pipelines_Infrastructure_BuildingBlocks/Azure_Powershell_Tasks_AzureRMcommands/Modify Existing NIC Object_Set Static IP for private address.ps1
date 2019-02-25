@@ -1,5 +1,5 @@
 #Sets the private IP as static to NIC object previously created
-#Note all variables with the syntax "$()" are DevOps variables that need to predefined
+#Note all variables with the syntax "$()" are DevOps variables that need to be predefined
 #Sets NIC name to the one previously created
 $NICName = "$(VMName)" + "NIC"
 #Retrieves NIC object

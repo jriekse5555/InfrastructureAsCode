@@ -1,5 +1,5 @@
 #Sets up variables leveraging pipeline and library Azure DevOps variables
-#Note all variables with the syntax "$()" are DevOps variables that need to predefined
+#Note all variables with the syntax "$()" are DevOps variables that need to be predefined
 $localPass = ConvertTo-SecureString "$(localPass)" -AsPlainText -Force
 $NICName = "$(VMName)" + "NIC"
 #Retrieves NIC object from previous steps

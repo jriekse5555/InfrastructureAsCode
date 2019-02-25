@@ -1,5 +1,5 @@
 #Adds a public IP to a NIC
-#Note all variables with the syntax "$()" are DevOps variables that need to predefined
+#Note all variables with the syntax "$()" are DevOps variables that need to be predefined
 #Sets up Public IP object name
 $PublicIPName = "Public-" + "$(VMName)"
 #Creates Public IP object
