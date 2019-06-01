@@ -1,0 +1,139 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "metadata": {
+                "description": "Type of Storage"
+            }
+        },
+        "vmName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Virtual Machine"
+            }
+        },
+        "adminUserName": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Admin Username"
+            }
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Admin password"
+            }
+        },
+        "vmNicId":{
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "eastus",
+            "metadata": {
+                "description": "Location"
+            }
+        },
+        "vmSize": {
+            "type": "string",
+            "metadata": {
+                "description": "VM Size"
+            }
+        },
+        "osSKU": {
+            "type": "string",
+            "metadata": {
+                "description": "OS SKU"
+            }
+        }
+    },
+    "variables": {
+        "VM1ImagePublisher": "MicrosoftWindowsServer",
+        "VM1ImageOffer": "WindowsServer",
+        "VM1OSDiskName": "[concat(parameters('vmName'), '-osdisk')]",
+        "VM1VmSize": "[parameters('vmSize')]",
+        "VM1StorageAccountName": "[concat('storage', uniqueString(subscription().id))]",
+        "location": "[parameters('location')]",
+        "sku": "[parameters('osSKU')]",
+        "adminusername": "[parameters('adminusername')]"
+    },
+    "resources": [
+        {
+            "name": "[variables('VM1StorageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "location": "[parameters('location')]",
+            "apiVersion": "2017-10-01",
+            "dependsOn": [],
+            "tags": {
+                "displayName": "StorageAccount"
+            },
+            "kind": "Storage",
+            "sku": {
+                "name": "[parameters('storageType')]"
+            }
+        },
+        {
+            "apiVersion": "2017-03-30",
+            "dependsOn": [
+                "[variables('VM1StorageAccountName')]"
+            ],
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('vmName')]",
+            "location": "[variables('location')]",
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[variables('VM1vmSize')]"
+                },
+                "osProfile": {
+                    "computerName": "[parameters('vmName')]",
+                    "adminUsername": "[variables('adminUserName')]",
+                    "adminPassword": "[parameters('adminPassword')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "[variables('VM1ImagePublisher')]",
+                        "offer": "[variables('VM1ImageOffer')]",
+                        "sku": "[variables('SKU')]",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "[variables('VM1OSDiskName')]",
+                        "caching": "ReadWrite",
+                        "createOption": "FromImage",
+                        "managedDisk": {
+                            "storageAccountType": "Standard_LRS"
+                        }
+                    },
+                    "dataDisks": [
+                        {
+                            "name": "[concat(parameters('vmName'), '-datadisk1')]",
+                            "createOption": "empty",
+                            "lun": 0,
+                            "diskSizeGB": "10",
+                            "caching": "ReadOnly",
+                            "managedDisk": {
+                                "storageAccountType": "Standard_LRS"
+                            }
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('http://',variables('VM1StorageAccountName'),'.blob.core.windows.net')]"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[parameters('vmNicId')]"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
