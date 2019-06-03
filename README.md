@@ -33,7 +33,7 @@ activities (network, resource groups, VMs) in Azure DevOps pipelines and the
 syntax type used:
 
 | Microsoft script                       | Syntax Type |
-|----------------------------------------|-------------|
+| -------------------------------------- | ----------- |
 | Powershell                             | Imperative  |
 | Azure Resource Manager (ARM) templates | Declarative |
 | Powershell DSC                         | Declarative |
@@ -43,7 +43,7 @@ automation covering tasks such as modification/creation of Azure objects, VM
 extensions, and guest VM configuration. Below is a list of common combinations:
 
 | Microsoft script structure                                 | How they are used                                                                                                   |
-|------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | Powershell only                                            | Azure objects, VM extensions and guest VM config                                                                    |
 | ARM templates                                              | Azure objects and VM extensions                                                                                     |
 | ARM templates calling Powershell DSC                       | ARM for azure objects and VM extensions calling DSC for guest VM config                                             |
@@ -299,7 +299,7 @@ variable groups can be created in the **Library**.
 For this example, create the following Pipeline variables by typing them in:
 
 | **Variable Name** | **Value**       |
-|-------------------|-----------------|
+| ----------------- | --------------- |
 | localPass         | P\@ssw0rd123456 |
 | localUser         | localUser       |
 | Location          | EastUS          |
@@ -645,6 +645,8 @@ content that may be useful.
 
 Example 2: Azure Deployment with Azure DevOps – Leveraging a Combination of Modular Techniques with a Release Pipeline (In Progress)
 -------------------------------------------------------------------------------------------------------------------------
+Original Technical Design by Mike Dzikowski
+
 
 Moving on from the previous simple example, the next example will use several
 more advanced declarative techniques executed serially by the pipeline. This
@@ -653,14 +655,19 @@ pipeline interface and offer a higher degree of insurance that the desired state
 is reached.
 
 This example will also deploy a VM and will instead use individual ARM templates
-for the NIC and virtual machine, and then Powershell DSC for configuration
-inside the virtual machine. A release pipeline will be used.
+for the virtual network, public IP, virtual network interface and virtual machine. A release pipeline will be used.
 
 Here is a graphic of the pipeline that will be constructed:
 
-![](media/0aef1c3c510edc817e27283877fcba58.png)
 
-Example to be continued as soon as possible…
+
+![](media/ExampleDeconstructedARMPipelineScreenshot.png)
+
+As you did in the previoius example you can either import an example pipeline or create it from scratch. These instructions will only detail the import process. If you would like to build it from scratch, you can first import the pipeline and then use it as a guide to build the design from scratch.
+
+Remainder of chapter coming soon
+
+
 
 #### Appendix A: Marking pipelines as favorites
 
