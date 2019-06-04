@@ -654,6 +654,8 @@ will continue to allow a high degree of customization using the simple graphical
 pipeline interface and offer a higher degree of insurance that the desired state
 is reached.
 
+This pipeline will use a series of modular ARM templates that contain an output section which allows the necessary variable to be passed back to the pipeline. A powershell script is used to convert the passed in variable into a format that can be used as an input to later modular ARM templates used later in the pipeline. You can examine the completed pipeline to see how this is done.
+
 This example will also deploy a VM and will instead use individual ARM templates
 for the virtual network, public IP, virtual network interface and virtual machine. A release pipeline will be used.
 
@@ -669,9 +671,17 @@ This example has a dependency on the resource group created in the first example
 
 #### Import the Azure DevOps Release Pipeline
 
-Follow the steps from the previous example to import the example pipeline. It's located in the same location as the previous example.
+Follow the steps from the previous example to import the example pipeline. It's located in the same location as the previous example within the git repository that was downloaded.
 
 ![](media/Import_Modular_ARM_Pipeline.PNG)
+
+Once the import is completed follow these steps to resolve the errors with the pipeline. This pipeline reads from this git repository to avoid the additional complexity of copying files to an Azure DevOps Repository or other location.
+
+After the import it will look like
+
+![](media/Modular_ARM_After_Import.PNG)
+
+
 
 
 
