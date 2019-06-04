@@ -683,11 +683,11 @@ After the import it will look like
 
 You will need to resolve missing information in both the artifact and the default Stage. 
 
-Start with the artifact by double-clicing it.
+Start with the artifact by double-clicking it.
 
 ![](media/Modular_ARM_Template_FixGit.PNG)
 
-
+zza
 
 Click on the red information icon to start resolving the errors.
 
