@@ -675,11 +675,13 @@ Follow the steps from the previous example to import the example pipeline. It's 
 
 ![](media/Import_Modular_ARM_Pipeline.PNG)
 
-Once the import is completed follow these steps to resolve the errors with the pipeline. This pipeline reads from this git repository to avoid the additional complexity of copying files to an Azure DevOps Repository or other location.
+Once the import is completed follow these steps to resolve the errors with the pipeline. This pipeline reads from the source git repository to avoid the additional complexity of copying files to an Azure DevOps Repository or other location.
 
 After the import it will look like
 
 ![](media/Modular_ARM_After_Import.PNG)
+
+Click on the red information icon to start resolving the errors.
 
 
 
