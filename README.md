@@ -665,6 +665,17 @@ Here is a graphic of the pipeline that will be constructed:
 
 As you did in the previoius example you can either import an example pipeline or create it from scratch. These instructions will only detail the import process. If you would like to build it from scratch, you can first import the pipeline and then use it as a guide to build the design from scratch.
 
+This example has a dependency on the resource group created in the first example so please ensure this is completed before starting.
+
+#### Import the Azure DevOps Release Pipeline
+
+Follow the steps from the previous example to import the example pipeline. It's located in the same location as the previous example.
+
+![](media/Import_Modular_ARM_Pipeline.PNG)
+
+
+
+
 Remainder of chapter coming soon
 
 
