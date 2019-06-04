@@ -687,9 +687,11 @@ Click Manage
 
 ![](media/Modular_ARM_Template_FixGit.PNG)
 
-Click New Service Connection
+Click New service connection and then choose GitHub
 
 ![](media/Modular_ARM_Add_Service_Connection.PNG)
+
+![](media/Modular_ARM_Template_Create_Service_Connection.PNG)
 
 
 
