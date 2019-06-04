@@ -677,17 +677,21 @@ Follow the steps from the previous example to import the example pipeline. It's 
 
 Once the import is completed follow these steps to resolve the errors with the pipeline. This pipeline reads from the source git repository to avoid the additional complexity of copying files to an Azure DevOps Repository or other location.
 
-After the import it will look like
+After the import it will look like the screenshot below. You will need to resolve missing information in both the artifact and the default Stage. 
+
+Start with the artifact by double-clicking it. 
 
 ![](media/Modular_ARM_After_Import.PNG)
 
-You will need to resolve missing information in both the artifact and the default Stage. 
-
-Start with the artifact by double-clicking it.
+Click Manage
 
 ![](media/Modular_ARM_Template_FixGit.PNG)
 
-zza
+Click New Service Connection
+
+![](media/Modular_ARM_Add_Service_Connection.PNG)
+
+
 
 Click on the red information icon to start resolving the errors.
 
