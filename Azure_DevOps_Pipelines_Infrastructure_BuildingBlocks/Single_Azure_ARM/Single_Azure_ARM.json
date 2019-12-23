@@ -28,7 +28,13 @@
     "Network": {
       "type": "string"
     },
+    "NetworkRange": {
+      "type": "string"
+    },
     "Subnet": {
+      "type": "string"
+    },
+    "SubnetRange": {
       "type": "string"
     },
     "imagePublisher": {
@@ -53,6 +59,27 @@
     "subnetRef": "[concat(variables('vNetID'), '/subnets/', parameters('Subnet'))]"
   },
   "resources": [
+    {
+      "name": "[parameters('Network')]",
+      "type": "Microsoft.Network/virtualNetworks",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2017-06-01",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('NetworkRange')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[parameters('Subnet')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetRange')]"
+            }
+          }
+        ]
+      }
+    },
     {
       "name": "[concat(parameters('vmName'), '-PIP0')]",
       "type": "Microsoft.Network/publicIPAddresses",
