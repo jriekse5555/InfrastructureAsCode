@@ -722,9 +722,11 @@ In the next and final section we'll go over the most popular deployment method w
 
 The one potential drawback to this approach when developing and considering the lifecycle of a solution, is the skill level required to create and change ARM templates. Especially in scenarios where its desirable that a solution be transitioned to an operational team, its good to use the best combination of techniques with this in mind.
 
-Here is a graphic of the pipeline that will be constructed:
+Here is a graphic of the pipeline that will be constructed. Note the resource group Building Blocks needs available in the subscription from the first chapter (or create it):
 
 
+
+It's common to see a parameters template file used to pass parameters into the primary ARM template file. In this example the Override template parameters field is used to pass in the paramaters from the variables defined in the pipeline.
 
 
 
