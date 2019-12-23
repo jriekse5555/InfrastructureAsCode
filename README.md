@@ -712,10 +712,18 @@ button in the top-right corner.
 
 ![](media/aae9ba7700beb9722d705db78689c8b0.png)
 
-In the next and final section we'll go over the most popular deployment method which is a single ARM template. 
+After completion you should see a 2nd VM created. You should be able to log into it with the same credentials as the first chapter. Don't forgot to deallocate the VMs if you are not actively using them to avoid compute charges. The minimal storage costs will still apply.
+
 
 Example 3: Azure Deployment with Azure DevOps – Leveraging a Single ARM Template with a Release Pipeline 
 -------------------------------------------------------------------------------------------------------------------------
+
+In the next and final section we'll go over the most popular deployment method which is a single ARM template called in a release pipeline. Using a single ARM template keeps the code in one place, allows creating multiple copies of resources using a copyindex function, and allows linking to DSC using linked ARM templates. This method is the most common Microsoft technology used in professional settings. 
+
+The one potential drawback to this approach when developing and considering the lifecycle of a solution, is the skill level required to create and change ARM templates. Especially in scenarios where its desirable that a solution be transitioned to an operational team, its good to use the best combination of techniques with this in mind.
+
+Here is a graphic of the pipeline that will be constructed:
+
 
 
 
