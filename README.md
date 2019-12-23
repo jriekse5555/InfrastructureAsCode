@@ -215,7 +215,7 @@ Click on the first step that needs attention
 In the right-pane, note the agent that is used to run the release. You can
 change this to use the hosted 2019 version.
 
-![](media/e8257c8995055d80b56b3e28fb351544.png)
+![](media/Modular_ARM_Template_FixAgentSelection_v2.PNG)
 
 You cannot save the release pipeline until all errors have been resolved.
 
@@ -330,7 +330,7 @@ Click on Agent job.
 In the right-pane, note the agent that is used to run the release. You can
 change this to use the hosted 2019 version.
 
-![](media/e8257c8995055d80b56b3e28fb351544.png)
+![](media/Modular_ARM_Template_FixAgentSelection_v2.PNG)
 
 Click the + sign on the right of Agent Job to create a task.
 
@@ -643,7 +643,7 @@ content that may be useful.
 
 ![](media/9d2470c34431d9b63f360378eb72d448.png)
 
-Example 2: Azure Deployment with Azure DevOps – Leveraging a Combination of Modular Techniques with a Release Pipeline (In Progress)
+Example 2: Azure Deployment with Azure DevOps – Leveraging a Combination of Modular Techniques with a Release Pipeline 
 -------------------------------------------------------------------------------------------------------------------------
 Original Technical Design by Mike Dzikowski
 
@@ -695,14 +695,29 @@ Click New service connection and then choose GitHub
 
 
 
-Click on the red information icon to start resolving the errors.
+Next, we'll go to the stages section to resolve remaining issues. Click on the red information icon to start resolving the errors.
+
+![](media/Modular_ARM_Template_FixAgentSelection.PNG)
+
+Add a hosted agent to run the pipeline as shown below and Save the pipeline:
+
+![](media/Modular_ARM_Template_FixAgentSelection_v2.PNG)
+
+Next, go to the Variable section and lock the default password. Then Save the pipeline.
+
+![](media/Modular_ARM_Template_LockPassword.PNG)
+
+To deploy the pipeline from the release pipeline edit view click the **Create a release**
+button in the top-right corner.
+
+![](media/aae9ba7700beb9722d705db78689c8b0.png)
+
+In the next and final section we'll go over the most popular deployment method which is a single ARM template. 
+
+Example 3: Azure Deployment with Azure DevOps – Leveraging a Single ARM Template with a Release Pipeline 
+-------------------------------------------------------------------------------------------------------------------------
 
 
-
-
-
-
-Remainder of chapter coming soon
 
 
 
