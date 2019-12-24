@@ -202,7 +202,14 @@ pipeline is on the following path in this repo.
 
 ![](media/c8032f43bfca8a8e832be4ed21474d75.png)
 
-Click the **Tasks** button or the Stage 1 link
+First, lets's resolve an error related to a security feature that was recently added. Click the Variables tab. Then click the lock icon to change the local password into a secure variable as shown below:
+
+![](media/LockPassword.PNG)
+![](media/LockPasswordv2.PNG)
+
+You can now save the pipeline normally.
+
+Next, click the **Tasks** button or the Stage 1 link
 
 ![](media/de40957492bdf099ce65700af02e8e38.png)
 
@@ -679,7 +686,14 @@ Once the import is completed follow these steps to resolve the errors with the p
 
 After the import it will look like the screenshot below. You will need to resolve missing information in both the artifact and the default Stage. 
 
-Start with the artifact by double-clicking it. 
+First, lets's resolve an error related to a security feature that was recently added. Click the Variables tab. Then click the lock icon to change the local password into a secure variable as shown below:
+
+![](media/LockPassword.PNG)
+![](media/LockPasswordv2.PNG)
+
+You can now save the pipeline normally.
+
+Next, resolve the error with the artifact by clicking it. 
 
 ![](media/Modular_ARM_After_Import.PNG)
 
@@ -720,11 +734,46 @@ Example 3: Azure Deployment with Azure DevOps – Leveraging a Single ARM Templa
 
 In the next and final section we'll go over the most popular deployment method which is a single ARM template called in a release pipeline. Using a single ARM template keeps the code in one place, allows creating multiple copies of resources using a copyindex function, and allows linking to DSC using linked ARM templates. This method is the most common Microsoft technology used in professional settings. 
 
-The one potential drawback to this approach when developing and considering the lifecycle of a solution, is the skill level required to create and change ARM templates. Especially in scenarios where its desirable that a solution be transitioned to an operational team, its good to use the best combination of techniques with this in mind.
+The one potential drawback to this approach when developing and considering the lifecycle of a solution, is the skill level required to create and change ARM templates. Especially in scenarios where its desirable that a solution be transitioned to an operational team, its good to use the best combination of techniques to keep its maintanability in line with their skillset.
 
-Here is a graphic of the pipeline that will be constructed. Note the resource group Building Blocks needs available in the subscription from the first chapter (or create it):
+Here is a graphic of the pipeline that will be constructed:
 
+![](media/Single_ARM_Template_PipelineGraphic.PNG)
 
+As you can see it only has one step which is to call the ARM template!
+
+As you did in the previoius example you can either import an example pipeline or create it from scratch. These instructions will only detail the import process. If you would like to build it from scratch, you can first import the pipeline and then use it as a guide to build the design from scratch.
+
+This example has a dependency on the resource group created in the first example so please ensure this is completed before starting.
+
+#### Import the Azure DevOps Release Pipeline
+
+Follow the steps from the previous example to import the example pipeline. It's located in the same location as the previous example within the git repository that was downloaded.
+
+![](media/Single_ARM_Template_Import.PNG)
+
+Once the import is completed follow these steps to resolve the errors with the pipeline. This pipeline reads from the source git repository to avoid the additional complexity of copying files to an Azure DevOps Repository or other location.
+
+After the import it will look like the screenshot below. You will need to resolve missing information in both the artifact and the default Stage. 
+
+![](media/Single_ARM_Template_AfterImport.PNG)
+
+If you completed the example 2 the artifact will automatically connect and only errors in the Stages section will be shown. If you didn't complete example 2, refer to the instructions there on connecting to the github repo.
+
+Next, lets's resolve an error related to a security feature that was recently added. Click the Variables tab. Then click the lock icon to change the local password into a secure variable as shown below:
+
+![](media/LockPassword.PNG)
+![](media/LockPasswordv2.PNG)
+
+You can now save the pipeline normally.
+
+Next, click on the error shown in the Stages section to bring up the details.
+
+As you did in the last section select the hosted agent to run the pipeline. Here's a screenshot of an appropriate choice:
+
+![](media/Modular_ARM_Template_FixAgentSelection_v2.PNG)
+
+Next, 
 
 It's common to see a parameters template file used to pass parameters into the primary ARM template file. In this example the Override template parameters field is used to pass in the paramaters from the variables defined in the pipeline.
 
