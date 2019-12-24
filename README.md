@@ -773,17 +773,22 @@ As you did in the last section select the hosted agent to run the pipeline. Here
 
 ![](media/Modular_ARM_Template_FixAgentSelection_v2.PNG)
 
-Next, 
+The pipeline is now ready to run which you can start at any time. 
 
-It's common to see a parameters template file used to pass parameters into the primary ARM template file. In this example the Override template parameters field is used to pass in the paramaters from the variables defined in the pipeline.
+Take a look at how the parameters are passed from the Variables tab into the ARM template.
 
+![](media/Single_ARM_Template_Parameters.PNG)
 
+It's common to see a parameters template file used to also pass parameters into the primary ARM template file. In this example the Override template parameters field is used as the sole source of parameters.
+
+Also, take a look at the construction of the ARM template which is located in the github repository. If you plan to use ARM templates you will need to understand the details well to customize them to your needs. 
+
+This concludes this introductory series which I hope you have found worthwhile. There are many more advanced areas you can explore further if you are interested.
 
 
 #### Appendix A: Marking pipelines as favorites
 
-To assist with finding your pipelines quickly you may wish to mark them as
-favorites.
+To assist with finding your pipelines quickly you may wish to mark them as favorites.
 
 The following steps show you how to mark your pipelines as favorites.
 
