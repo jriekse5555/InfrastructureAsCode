@@ -16,6 +16,8 @@ $DSCPath = "$(DeployStorageAcctLocation)" + "/test.zip" + "$(DeployStorageAcctSA
 $Settings = @{
     "ModulesUrl" = "$DSCPath";
     "ConfigurationFunction" = "test.ps1\Install"
+    #Setting used as a change to the config to force a .zip with the same name to download when the .ps1 and .zip are changed
+    "advancedOptions" = @{"downloadMappings" = "2"}
  }
 
 $ProtectedSettings = @{
